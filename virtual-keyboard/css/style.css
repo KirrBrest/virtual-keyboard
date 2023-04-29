@@ -1,40 +1,112 @@
 .body {
-  max-width: 1279px;
+  max-width: 876px;
+  width: 100%;
   margin: 50px auto 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 .text-area {
   display: block;
   border: 2px solid black;
   min-height: 100px;
+  max-width: 870px;
+  width: 100%;
   padding: 5px;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
 }
 
-.keyboard-wrapper {
+/* .keyboard-wrapper {
   display: block;
   border: 2px solid black;
   padding: 5px;
+} */
+
+.keyboard-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  justify-content: center;
+  padding: 5px;
+
 }
 
-.keyboard-wrapper::after {
+/* .keyboard-wrapper::after {
   content: "";
-  display: block;
+  display: grid;
   clear: both;
+} */
+
+.big-key {
+  display: flex;
+  width: 126px;
+  height: 50px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
 }
 
-.k-key {
-  width: 50px;
+.tab {
+  display: flex;
+  width: 70px;
+  height: 50px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
+.double-key {
+  display: flex;
+  width: 106px;
+  height: 50px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
+.space {
+  display: flex;
+  width: 406px;
   height: 50px;
   border: 1px solid black;
   margin: 3px;
-  padding: 3px;
-  float: left;
 }
 
-/* очистка потока - перенос на другую строку */
-.clearfix {
-  clear: both;
+.big-key,
+.tab,
+.double-key {
+  color: white;
+  background-color: black;
+  font-weight: 700;
+}
+
+.arrows-key {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
+.keys {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
 }
 
 .active {
