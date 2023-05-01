@@ -43,7 +43,7 @@
   clear: both;
 } */
 
-.big-key {
+.big-button {
   display: flex;
   width: 126px;
   height: 50px;
@@ -63,7 +63,7 @@
   margin: 3px;
 }
 
-.double-key {
+.double-button {
   display: flex;
   width: 106px;
   height: 50px;
@@ -81,12 +81,19 @@
   margin: 3px;
 }
 
-.big-key,
+.big-button,
 .tab,
-.double-key {
+.double-button,
+.service-button {
   color: white;
   background-color: black;
   font-weight: 700;
+}
+
+.arrows-key,
+.space {
+  color: white;
+  background-color: grey;
 }
 
 .arrows-key {
@@ -99,7 +106,49 @@
   margin: 3px;
 }
 
-.keys {
+.arrow-up {
+  width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #1e9e93;
+}
+
+.arrow-down {
+  width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #1e9e93;
+}
+
+.arrow-left {
+  width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 20px solid #1e9e93;
+    border-bottom: 10px solid transparent;
+}
+
+.arrow-right {
+  width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 20px solid #1e9e93;
+    border-bottom: 10px solid transparent;
+}
+
+.button {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
+.service-button {
   display: flex;
   width: 50px;
   height: 50px;
