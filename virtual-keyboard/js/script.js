@@ -26,28 +26,28 @@ function init () {
   let out = '';
   for (let i = 0; i < keyboard.length; i++) {
     if (i == 13) {
-      out += '<div class = "big-button k-key"> Backspace </div>';
-      out += '<div class = "tab k-key"> Tab </div>';
+      out += '<div class = "big-button k-key" data = "Backspace"> Backspace </div>';
+      out += '<div class = "tab k-key" data = "Tab"> Tab </div>';
     } else if (i == 26) {
-      out += '<div class = "service-button k-key"> Del </div>';
-      out += '<div class = "big-button k-key"> CapsLock </div>';
+      out += '<div class = "service-button k-key" data = "Delete"> Del </div>';
+      out += '<div class = "big-button k-key" data = "CapsLock"> CapsLock </div>';
     } else if (i == 37) {
-      out += '<div class = "double-button k-key"> Enter </div>';
-      out += '<div class = "big-button k-key"> Shift </div>';
+      out += '<div class = "double-button k-key" data = "Enter"> Enter </div>';
+      out += '<div class = "big-button k-key" data = "ShiftLeft"> Shift </div>';
     }
     out += '<div class = "button k-key" data = "' + keyboard[i] + '">' + keyboard[i] + '</div>';
      if (i == 46) {
-      out += '<div class = "arrows-key k-key"><div class = "arrow-up"> </div></div>';
-      out += '<div class = "double-button k-key"> Shift </div>';
-      out += '<div class = "service-button k-key"> Ctrl </div>';
-      out += '<div class = "service-button k-key"> Win </div>';
-      out += '<div class = "service-button k-key"> Alt </div>';
-      out += '<div class = "space k-key">  </div>';
-      out += '<div class = "service-button k-key"> Alt </div>';
-      out += '<div class = "arrows-key k-key"><div class = "arrow-left"> </div></div>';
-      out += '<div class = "arrows-key k-key"><div class = "arrow-down"> </div></div>';
-      out += '<div class = "arrows-key k-key"><div class = "arrow-right"> </div></div>';
-      out += '<div class = "service-button k-key k-key"> Ctrl </div>';
+      out += '<div class = "arrows-key k-key" data = "ArrowUp"><div class = "arrow-up"> </div></div>';
+      out += '<div class = "double-button k-key" data = "ShiftRight"> Shift </div>';
+      out += '<div class = "service-button k-key" data = "ControlLeft"> Ctrl </div>';
+      out += '<div class = "service-button k-key" data = "MetaLeft"> Win </div>';
+      out += '<div class = "service-button k-key" data = "AltLeft"> Alt </div>';
+      out += '<div class = "space k-key" data = " ">  </div>';
+      out += '<div class = "service-button k-key" data = "AltRight"> Alt </div>';
+      out += '<div class = "arrows-key k-key" data = "ArrowLeft"><div class = "arrow-left"> </div></div>';
+      out += '<div class = "arrows-key k-key" data = "ArrowDown"><div class = "arrow-down"> </div></div>';
+      out += '<div class = "arrows-key k-key" data = "ArrowRight"><div class = "arrow-right"> </div></div>';
+      out += '<div class = "service-button k-key" data = "ControlRight"> Ctrl </div>';
     }
   }
   document.querySelector('.keyboard-wrapper').innerHTML = out;
@@ -60,7 +60,11 @@ document.addEventListener('keydown', function (event) {
   document.querySelectorAll('.keyboard-wrapper .k-key').forEach(function (element) {
     element.classList.remove('active');
   });
-  document.querySelector('.keyboard-wrapper .k-key[data = "' + event.key + '"]').classList.add('active');
+  if (event.key.length < 2 || event.key == "\\" ){
+    document.querySelector('.keyboard-wrapper .k-key[data = "' + event.key + '"]').classList.add('active');
+  } else {
+    document.querySelector('.keyboard-wrapper .k-key[data = "' + event.code + '"]').classList.add('active');
+  }
 });
 
 document.addEventListener('keyup', function (event) {
@@ -87,7 +91,6 @@ document.addEventListener("keydown", function (event) {
   if (push !== null && push.length < 2) {
     textArea.value += push;
   }
-  console.log("push");
 });
 
 document.querySelectorAll('.keyboard-wrapper .k-key').forEach(function (element) {
